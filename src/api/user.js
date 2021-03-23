@@ -2,9 +2,9 @@ import request from '@/utils/request'
 
 export function login (loginForm) {
   return request({
-    url: '/login',
+    url: '/crm/user/login',
     method: 'post',
-    data: loginForm
+    params: loginForm
   })
 }
 

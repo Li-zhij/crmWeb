@@ -73,8 +73,10 @@ export default {
   },
   computed: {
     username () {
-      let { username } = JSON.parse(sessionStorage.getItem('user'))
-      return username.toUpperCase()
+      // let { username } = JSON.parse(sessionStorage.getItem('user'))
+      let { name } = JSON.parse(sessionStorage.getItem('user'))
+      // return username.toUpperCase()
+      return name
     }
   }
 }

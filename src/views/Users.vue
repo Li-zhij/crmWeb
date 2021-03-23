@@ -158,7 +158,7 @@ export default {
       this.loading = true
       // this.$http('/api/users').then((res) => {
       getUsers().then((res) => {
-        this.users = res.data
+        this.users = res.data.data
         console.log(this.users)
       }).catch((err) => {
         console.error(err)
@@ -178,7 +178,7 @@ export default {
           if (id) {
             // id非空-修改
             updateUser(this.user).then(res => {
-              if (res.data.status === 'success') {
+              if (res.data.success) {
                 this.getUsers()
                 this.$message({
                   type: 'success',
@@ -192,7 +192,7 @@ export default {
           } else {
             // id为空-新增
             addUser(this.user).then(res => {
-              if (res.data.status === 'success') {
+              if (res.data.success) {
                 this.getUsers()
                 this.$message({
                   type: 'success',
@@ -217,7 +217,7 @@ export default {
       }).then(() => {
         // this.users.splice(index, 1)
         deleteUser(row.id).then(res => {
-          if (res.data.status === 'success') {
+          if (res.data.success) {
             this.getUsers()
             this.$message({
               type: 'success',
