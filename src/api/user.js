@@ -4,7 +4,7 @@ export function login (loginForm) {
   return request({
     url: '/crm/user/login',
     method: 'post',
-    params: loginForm
+    data: loginForm
   })
 }
 

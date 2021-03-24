@@ -158,8 +158,14 @@ export default {
       this.loading = true
       // this.$http('/api/users').then((res) => {
       getUsers().then((res) => {
-        this.users = res.data.data
-        console.log(this.users)
+        if (res.data.success) {
+          this.users = res.data.data
+        } else {
+          this.$message({
+            type: 'error',
+            message: res.data.message
+          })
+        }
       }).catch((err) => {
         console.error(err)
       })
